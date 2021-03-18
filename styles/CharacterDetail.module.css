@@ -1,0 +1,15 @@
+.backContainer{
+    display: flex;
+    align-items: center;
+    padding:16px;
+}
+
+.backIcon {
+    margin-right: 16px;
+}
+
+.backIcon + h5 {
+    margin-bottom: 0;
+}
+
+

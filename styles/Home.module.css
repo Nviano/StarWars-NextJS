@@ -1,0 +1,55 @@
+.container {
+  min-height: 100vh;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+
+.section {
+  width: 100%;
+}
+
+.title {
+  margin: 2rem 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.buttonWidth {
+  width: 100%;
+}
+
+.buttonWidth > button {
+  width:200px;
+}
+
+@media (max-width: 540px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+  .buttonWidth > button {
+    width:100%;
+    margin-bottom:16px
+  }
+  .title {
+
+    line-height: 1.15;
+    font-size: 2.5rem;
+  }
+}
