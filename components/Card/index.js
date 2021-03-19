@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Card({ name, films, birthYear, id }) {
+const Card = ({ name, films, birthYear, id }) => {
     return (
         <div className="card border-white text-white mb-3 ">
             <div className="card-header bg-transparent border-white">
@@ -19,3 +19,5 @@ export default function Card({ name, films, birthYear, id }) {
         </div>
     )
 }
+
+export default Card
