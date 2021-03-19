@@ -1,6 +1,17 @@
 import styles from 'styles/DetailCard.module.css'
 
 const DetailCard = ({ name, height, gender, mass, hairColor, eyeColor, skinColor, birthYear, films }) => {
+
+    const getTimeAgo = (releaseDate, currentDate) => {
+        const splitDate = releaseDate.split('-')
+        const releaseYear = splitDate[0]
+        const result = currentDate - Number(releaseYear)
+
+        return result
+    }
+
+    const currentYear = new Date().getFullYear()
+
     return (
         <div className={styles.container}>
             <div className={styles.card}>
@@ -9,7 +20,7 @@ const DetailCard = ({ name, height, gender, mass, hairColor, eyeColor, skinColor
                 </div>
                 <div className={styles.body}>
                     <div className="row row-cols-md-3 row-cols-2 no-gutters">
-                        <div className="col p-md-3 p-2">
+                        <div className="col p-md-3 p-2 cy-character-height">
                             <strong>Height:</strong> {height}
                         </div>
                         <div className="col p-md-3 p-2">
@@ -36,7 +47,10 @@ const DetailCard = ({ name, height, gender, mass, hairColor, eyeColor, skinColor
                     <h3>Films</h3>
                     <ul>
                         {films.map((film, index) => (
-                            <li key={index}>{film}</li>
+                            <li key={index} className='cy-li'>
+                                <strong>{film.title}:</strong>
+                                <span className='pl-2'>{getTimeAgo(film.release_date, currentYear)} years ago</span>
+                            </li>
                         ))}
                     </ul>
                 </div>

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
@@ -64,23 +63,37 @@ export default function Home({ data }) {
     })
   }
 
+  function handleOnSubmitSearch(e) {
+    e.preventDefault();
+
+    const { currentTarget = {} } = e
+    const fields = Array.from(currentTarget?.elements)
+    const fieldQuery = fields.find(field => field.name === 'query')
+
+    const value = fieldQuery.value || ''
+    const endpoint = `http://swapi.dev/api/people/?search=${value}`
+
+    updatePage({
+      current: endpoint
+    })
+  }
+
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Star Wars App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to the dark side
         </h1>
+        <form className={styles.search} onSubmit={handleOnSubmitSearch}>
+          <input type="search" className="form-control" placeholder="Search character" aria-label="Search character" name='query' />
+          <button className='btn btn-info'>Search</button>
+        </form>
         <section className={styles.section}>
           <div className="row row-cols-1 row-cols-md-4">
             {results.map((result, index) => {
               const { name, films, birth_year } = result
               return (
-                <div key={index} className="col mb-4">
+                <div key={index} className="col cy-list mb-4">
                   <Card name={name} films={films} birthYear={birth_year} id={index + 1} />
                 </div>
               )
@@ -88,7 +101,7 @@ export default function Home({ data }) {
           </div>
         </section>
         <div className={styles.buttonWidth}>
-          <button className='btn btn-info btn-lg ' onClick={handleLoadMore}>Load more</button>
+          <button className='btn btn-info cy-load-more btn-lg' onClick={handleLoadMore}>Load more</button>
         </div>
       </main>
     </div>
