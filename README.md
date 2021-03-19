@@ -14,21 +14,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Dependencies used
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I used the following dependencies in this project:
 
-## Learn More
+- [Next Js](https://nextjs.org/) - I have decided to do the project with Next js because I never made an application with this framework and I loved it. 
+- [Cypress](https://www.npmjs.com/package/cypress) - I used cypress to do the testing because I had never used it before and I like to learn the most modern technologies. I liked it and I have enjoyed the tests.
+- [start-server-and-test](https://www.npmjs.com/package/start-server-and-test) - I decide to use this dependency because I realized that when I run the test with cypress the server was down and using this dependency I could run the server and then run the tests.
+- [Bootswatch](https://bootswatch.com/) - I chose Bootswatch because it helps me to create components faster and the integration with Next js was easy. I usually use Material UI in my projects but in this time I wanted to switch.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Improvements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The improvements I would do:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Handle errors. Currently if you type in the url a character id that not exist, the app breaks instead of send you a messagge telling you that id does not exist and for example redirect you to the home page.
+- The searching. In the home page, if you search a character when you remove the query you get the default page instead of the last page you was in.
